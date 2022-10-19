@@ -2,12 +2,12 @@ from tkinter import *
 from tokenize import Double
 from PIL import Image, ImageFilter, ImageTk
 
-
+#Se crea la ventana donde iran los elementos 
 ventana = Tk()
 ventana.title("Pupuseria la bendición")
 ventana.geometry("800x600")
 ventana.configure(bg="#2E86C1")
-
+#se configuran las imagenes 
 queso= Image.open(r"C:\Users\ec133\Desktop\parcial\queso.jpeg")
 queso=queso.filter(ImageFilter.SHARPEN)
 render=ImageTk.PhotoImage(queso)
@@ -55,7 +55,7 @@ fres=fres.filter(ImageFilter.SHARPEN)
 render5=ImageTk.PhotoImage(fres)
 reducida4 = fres.resize((100,100), Image.Resampling.LANCZOS)
 render5= ImageTk.PhotoImage(reducida4)
-
+#se cren las funciones para los radio buttons 
 opcion=IntVar()
 bebida=IntVar()
 domicilio=IntVar()
@@ -119,7 +119,7 @@ def total():
 
 
 
-
+#Se agregan los radio buttons 
 radio1=Radiobutton(ventana, text="QUESO" , value=1 ,command=pupusas, variable=opcion)
 radio2=Radiobutton(ventana, text="F/Q" , value=2, command=pupusas, variable=opcion)
 radio3=Radiobutton(ventana, text="REVUELTAS" , value=3,command=pupusas , variable=opcion)
@@ -129,7 +129,7 @@ radio6=Radiobutton(ventana, text="Fresco" , value=6,command=bebidas , variable=b
 radio7=Radiobutton(ventana, text="si" , value=1 ,command=domic, variable=domicilio)
 radio8=Radiobutton(ventana, text="no" , value=2,command=domic ,variable=domicilio)
 
-
+#Se agrega el boton de imprimir factura y el entry para saber cuantas pupusas se ordenaron 
 cantidad=StringVar()
 btn=Button(ventana, text="imprimir factura", command=total)
 
@@ -137,7 +137,7 @@ cant=Entry(ventana, font=10, bg="white", textvariable=cantidad)
 
 
 
-
+#Se crean los labels donde iran las imagenes y ademas se pocisiona todo lo que ira dentro de la ventana 
 lb=Label(ventana,text="Especialidades de pupusas", background="#5DADE2")
 lb.place(x=240, y=10)
 lb1=Label(ventana, image=render)
